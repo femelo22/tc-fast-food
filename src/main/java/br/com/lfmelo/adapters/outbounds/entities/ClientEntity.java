@@ -1,5 +1,6 @@
 package br.com.lfmelo.adapters.outbounds.entities;
 
+import br.com.lfmelo.domains.clients.Client;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -26,4 +27,13 @@ public class ClientEntity {
 
     @Column(name = "phone", length = 30)
     private String phone;
+
+    public ClientEntity(Client client) {
+        this.id = client.getId();
+        this.cpf = client.getCpf();
+        this.name = client.getName();
+        this.email = client.getEmail();
+        this.password = client.getPassword();
+        this.phone = client.getPhone();
+    }
 }
