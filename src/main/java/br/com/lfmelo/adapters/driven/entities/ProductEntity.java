@@ -1,6 +1,6 @@
 package br.com.lfmelo.adapters.driven.entities;
 
-import br.com.lfmelo.core.domains.enums.TypeProduct;
+import br.com.lfmelo.core.domains.enums.CategoryProduct;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -26,5 +26,5 @@ public class ProductEntity {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "type_product")
-    private TypeProduct type;
+    private CategoryProduct type;
 }

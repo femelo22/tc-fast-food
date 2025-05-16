@@ -10,21 +10,22 @@ public class Client {
 
     private String email;
 
-    private String password;
-
     private String phone;
 
     public Client() {
 
     }
 
-    public Client(Long id, String cpf, String name, String email, String password, String phone) {
+    public Client(Long id, String cpf, String name, String email, String phone) {
         this.id = id;
         this.cpf = cpf;
         this.name = name;
         this.email = email;
-        this.password = password;
         this.phone = phone;
+    }
+
+    public Client(String cpf) {
+        this.cpf = cpf;
     }
 
     public Long getId() {
@@ -57,14 +58,6 @@ public class Client {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public String getPhone() {

@@ -1,6 +1,6 @@
 package br.com.lfmelo.core.domains.products;
 
-import br.com.lfmelo.core.domains.enums.TypeProduct;
+import br.com.lfmelo.core.domains.enums.CategoryProduct;
 
 import java.math.BigDecimal;
 
@@ -14,16 +14,16 @@ public class Product {
 
     private BigDecimal price;
 
-    private TypeProduct type;
+    private CategoryProduct category;
 
     public Product() {}
 
-    public Product(Long id, String name, String description, BigDecimal price, TypeProduct type) {
+    public Product(Long id, String name, String description, BigDecimal price, CategoryProduct category) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.price = price;
-        this.type = type;
+        this.category = category;
     }
 
     public Long getId() {
@@ -58,11 +58,11 @@ public class Product {
         this.price = price;
     }
 
-    public TypeProduct getType() {
-        return type;
+    public CategoryProduct getCategory() {
+        return category;
     }
 
-    public void setType(TypeProduct type) {
-        this.type = type;
+    public void setCategory(CategoryProduct category) {
+        this.category = category;
     }
 }

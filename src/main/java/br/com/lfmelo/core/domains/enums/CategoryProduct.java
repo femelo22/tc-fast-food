@@ -1,6 +1,6 @@
 package br.com.lfmelo.core.domains.enums;
 
-public enum TypeProduct {
+public enum CategoryProduct {
     MAIN,
     SIDE,
     DRINK,

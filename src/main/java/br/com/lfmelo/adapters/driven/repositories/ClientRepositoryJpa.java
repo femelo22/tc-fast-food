@@ -10,4 +10,6 @@ public interface ClientRepositoryJpa extends JpaRepository<ClientEntity, Long> {
 
     @Query("SELECT * FROM TBL_CLIENTS WHERE cpf = :cpf")
     ClientEntity findByCpf(String cpf);
+
+    Boolean existsByNameAndEmail(String name, String email);
 }
