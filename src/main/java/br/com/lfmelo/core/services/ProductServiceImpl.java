@@ -1,6 +1,7 @@
 package br.com.lfmelo.core.services;
 
 import br.com.lfmelo.adapters.driven.entities.ProductEntity;
+import br.com.lfmelo.adapters.dtos.ProductFilterDTO;
 import br.com.lfmelo.core.domains.products.Product;
 import br.com.lfmelo.core.ports.ProductRepositoryPort;
 import br.com.lfmelo.core.ports.ProductServicePort;
@@ -15,14 +16,17 @@ public class ProductServiceImpl implements ProductServicePort {
     @Autowired
     private ProductRepositoryPort productRepositoryPort;
 
+    @Autowired
+    private ProductSpecification specification;
+
     @Override
     public ProductEntity createProduct(Product product) {
         return productRepositoryPort.createProduct(product);
     }
 
     @Override
-    public Page<ProductEntity> findProduct(Pageable pageable) {
-        return productRepositoryPort.findProduct(pageable);
+    public Page<ProductEntity> findProduct(Pageable pageable, ProductFilterDTO dto) {
+        return productRepositoryPort.findProduct(specification.getFilter(dto), pageable);
     }
 
     @Override

@@ -1,5 +1,6 @@
 package br.com.lfmelo.adapters.drivers.controllers;
 
+import br.com.lfmelo.adapters.dtos.ProductFilterDTO;
 import br.com.lfmelo.core.domains.enums.CategoryProduct;
 import br.com.lfmelo.core.domains.products.Product;
 import br.com.lfmelo.core.domains.products.ProductForm;
@@ -36,8 +37,9 @@ public class ProductController {
     }
 
     @GetMapping
-    public ResponseEntity<?> findByCpf(@PageableDefault(page = 0, size = 20, sort = "id", direction = Sort.Direction.DESC) Pageable pageable) {
-        return ResponseEntity.ok().body(productServicePort.findProduct(pageable));
+    public ResponseEntity<?> findByCpf(@PageableDefault(page = 0, size = 20, sort = "id", direction = Sort.Direction.DESC) Pageable pageable,
+                                       @ModelAttribute ProductFilterDTO filter) {
+        return ResponseEntity.ok().body(productServicePort.findProduct(pageable, filter));
     }
 
     @GetMapping("/{idProduct}")

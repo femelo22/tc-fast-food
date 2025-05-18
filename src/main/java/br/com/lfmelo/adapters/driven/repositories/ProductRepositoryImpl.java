@@ -6,6 +6,7 @@ import br.com.lfmelo.core.ports.ProductRepositoryPort;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -21,8 +22,8 @@ public class ProductRepositoryImpl implements ProductRepositoryPort {
     }
 
     @Override
-    public Page<ProductEntity> findProduct(Pageable pageable) {
-        return productRepositoryJpa.findAll(pageable);
+    public Page<ProductEntity> findProduct(Specification<ProductEntity> specification, Pageable pageable) {
+        return productRepositoryJpa.findAll(specification, pageable);
     }
 
     @Override
