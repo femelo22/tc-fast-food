@@ -1,12 +1,17 @@
 package br.com.lfmelo.adapters.driven.entities;
 
 import br.com.lfmelo.core.domains.enums.CategoryProduct;
+import br.com.lfmelo.core.domains.products.Product;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity(name = "TBL_PRODUCT")
 @Table(name = "TBL_PRODUCT")
 public class ProductEntity {
@@ -26,5 +31,13 @@ public class ProductEntity {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "type_product")
-    private CategoryProduct type;
+    private CategoryProduct category;
+
+    public ProductEntity(Product product) {
+        this.id = product.getId();
+        this.description = product.getDescription();
+        this.name = product.getName();
+        this.category = product.getCategory();
+        this.price = product.getPrice();
+    }
 }

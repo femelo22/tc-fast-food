@@ -30,5 +30,10 @@ public class ClientEntity {
     private String phone;
 
     public ClientEntity(Client client) {
+        this.id = client.getId();
+        this.cpf = client.getCpf();
+        this.email = client.getEmail();
+        this.name = client.getName();
+        this.phone = client.getPhone();
     }
 }
