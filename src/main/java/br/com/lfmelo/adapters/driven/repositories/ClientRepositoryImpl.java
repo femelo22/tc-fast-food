@@ -4,7 +4,9 @@ import br.com.lfmelo.adapters.driven.entities.ClientEntity;
 import br.com.lfmelo.core.domains.clients.Client;
 import br.com.lfmelo.core.ports.ClientRepositoryPort;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class ClientRepositoryImpl implements ClientRepositoryPort {
 
     @Autowired

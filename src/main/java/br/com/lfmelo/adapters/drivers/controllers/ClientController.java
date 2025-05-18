@@ -1,7 +1,7 @@
 package br.com.lfmelo.adapters.drivers.controllers;
 
 import br.com.lfmelo.core.domains.clients.Client;
-import br.com.lfmelo.core.domains.clients.ClientDTO;
+import br.com.lfmelo.core.domains.clients.ClientForm;
 import br.com.lfmelo.core.ports.ClientServicePort;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,13 +20,13 @@ public class ClientController {
     private ModelMapper modelMapper;
 
     @PostMapping
-    public ResponseEntity<?> registerClient(@RequestBody ClientDTO dto) {
-        Client client = modelMapper.map(dto, Client.class);
+    public ResponseEntity<?> registerClient(@RequestBody ClientForm form) {
+        Client client = modelMapper.map(form, Client.class);
         return new ResponseEntity<>(clientServicePort.createUser(client), HttpStatus.CREATED);
     }
 
     @GetMapping
-    public ResponseEntity<?> findByCpf(@RequestAttribute("cpf") String cpf) {
+    public ResponseEntity<?> findByCpf(@RequestParam String cpf) {
         return ResponseEntity.ok().body(clientServicePort.findByCpf(cpf));
     }
 }
