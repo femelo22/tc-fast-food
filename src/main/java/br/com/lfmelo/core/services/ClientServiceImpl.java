@@ -1,9 +1,9 @@
-package br.com.lfmelo.core.services.impl;
+package br.com.lfmelo.core.services;
 
 import br.com.lfmelo.adapters.driven.entities.ClientEntity;
 import br.com.lfmelo.core.domains.clients.Client;
 import br.com.lfmelo.core.ports.ClientRepositoryPort;
-import br.com.lfmelo.core.services.ClientServicePort;
+import br.com.lfmelo.core.ports.ClientServicePort;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

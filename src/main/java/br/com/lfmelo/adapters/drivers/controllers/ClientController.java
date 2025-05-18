@@ -2,7 +2,7 @@ package br.com.lfmelo.adapters.drivers.controllers;
 
 import br.com.lfmelo.core.domains.clients.Client;
 import br.com.lfmelo.core.domains.clients.ClientDTO;
-import br.com.lfmelo.core.services.ClientServicePort;
+import br.com.lfmelo.core.ports.ClientServicePort;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
