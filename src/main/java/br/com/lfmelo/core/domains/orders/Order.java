@@ -12,6 +12,8 @@ public class Order {
 
     private StatusOrder status;
 
+    private String alias;
+
     private LocalDateTime orderDate;
 
     private BigDecimal total;
@@ -21,9 +23,10 @@ public class Order {
     public Order() {
     }
 
-    public Order(Long id, StatusOrder status, LocalDateTime orderDate, BigDecimal total, Client client) {
+    public Order(Long id, StatusOrder status, String alias, LocalDateTime orderDate, BigDecimal total, Client client) {
         this.id = id;
         this.status = status;
+        this.alias = alias;
         this.orderDate = orderDate;
         this.total = total;
         this.client = client;
@@ -67,5 +70,13 @@ public class Order {
 
     public void setClient(Client client) {
         this.client = client;
+    }
+
+    public String getAlias() {
+        return alias;
+    }
+
+    public void setAlias(String alias) {
+        this.alias = alias;
     }
 }

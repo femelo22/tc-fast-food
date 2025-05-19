@@ -1,4 +1,4 @@
-package br.com.lfmelo.core.domains.ordersitens;
+package br.com.lfmelo.core.domains.orderitems;
 
 import br.com.lfmelo.adapters.driven.entities.OrderEntity;
 import br.com.lfmelo.adapters.driven.entities.ProductEntity;

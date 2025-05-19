@@ -1,34 +1,33 @@
-package br.com.lfmelo.core.services;
+package br.com.lfmelo.core.services.specs;
 
+import br.com.lfmelo.adapters.driven.entities.OrderEntity;
 import br.com.lfmelo.adapters.driven.entities.ProductEntity;
+import br.com.lfmelo.adapters.dtos.OrderFilterDTO;
 import br.com.lfmelo.adapters.dtos.ProductFilterDTO;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Component;
 
-import javax.swing.*;
 import java.math.BigDecimal;
 
 @Component
-public class ProductSpecification {
+public class OrderSpecification {
+
+    //TODO: IMPLEMENTAR CORRETAMENTE
 
     private final String ATT_ID = "id";
-    private final String ATT_CATEGORY = "category";
-    private final String ATT_NAME = "name";
-    private final String ATT_DESCRIPTION = "description";
-    private final String ATT_PRICE = "price";
+    private final String ATT_CATEGORY = "status";
+    private final String ATT_NAME = "alias";
+    private final String ATT_DESCRIPTION = "orderDate";
+    private final String ATT_PRICE = "total";
+    private final String ATT_CLIENT = "client";
 
-    public Specification<ProductEntity> getFilter(ProductFilterDTO dto) {
+    public Specification<OrderEntity> getFilter(OrderFilterDTO dto) {
         return (root, query, criteriaBuilder) ->
-            Specification.where(attributeEquals(ATT_ID, dto.getId())
-                .and(attributeContains(ATT_CATEGORY, dto.getCategory()))
-                .and(attributeContains(ATT_DESCRIPTION, dto.getDescription()))
-                .and(attributeContains(ATT_NAME, dto.getName())))
-                .and(attributeGreaterThan(ATT_PRICE, dto.getPriceGreaterThan()))
-                .and((attributeLassThan(ATT_PRICE, dto.getPriceLassThan())))
-                .toPredicate(root, query, criteriaBuilder);
+            Specification.where(attributeEquals(ATT_ID, dto.getId()))
+                    .toPredicate(root, query, criteriaBuilder);
     }
 
-    public Specification<ProductEntity> attributeEquals(String attribute, Object value) {
+    public Specification<OrderEntity> attributeEquals(String attribute, Object value) {
         return (root, query, criteriaBuilder) -> {
             if (value == null) {
                 return null;

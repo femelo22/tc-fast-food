@@ -1,4 +1,4 @@
-package br.com.lfmelo.adapters.driven.repositories;
+package br.com.lfmelo.adapters.driven.repositories.jpa;
 
 import br.com.lfmelo.adapters.driven.entities.ClientEntity;
 import org.springframework.data.jpa.repository.JpaRepository;

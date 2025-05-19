@@ -5,6 +5,7 @@ import br.com.lfmelo.adapters.dtos.ProductFilterDTO;
 import br.com.lfmelo.core.domains.products.Product;
 import br.com.lfmelo.core.ports.ProductRepositoryPort;
 import br.com.lfmelo.core.ports.ProductServicePort;
+import br.com.lfmelo.core.services.specs.ProductSpecification;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

@@ -1,6 +1,7 @@
-package br.com.lfmelo.adapters.driven.repositories;
+package br.com.lfmelo.adapters.driven.repositories.impl;
 
 import br.com.lfmelo.adapters.driven.entities.ProductEntity;
+import br.com.lfmelo.adapters.driven.repositories.jpa.ProductRepositoryJpa;
 import br.com.lfmelo.core.domains.products.Product;
 import br.com.lfmelo.core.ports.ProductRepositoryPort;
 import org.springframework.beans.factory.annotation.Autowired;

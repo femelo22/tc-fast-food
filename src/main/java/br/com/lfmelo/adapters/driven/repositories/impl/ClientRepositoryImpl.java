@@ -1,6 +1,7 @@
-package br.com.lfmelo.adapters.driven.repositories;
+package br.com.lfmelo.adapters.driven.repositories.impl;
 
 import br.com.lfmelo.adapters.driven.entities.ClientEntity;
+import br.com.lfmelo.adapters.driven.repositories.jpa.ClientRepositoryJpa;
 import br.com.lfmelo.core.domains.clients.Client;
 import br.com.lfmelo.core.ports.ClientRepositoryPort;
 import org.springframework.beans.factory.annotation.Autowired;
