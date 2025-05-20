@@ -37,4 +37,9 @@ public class OrderController {
                                         @ModelAttribute OrderFilterDTO filter) {
         return ResponseEntity.ok().body(orderServicePort.listOrders(pageable, filter));
     }
+
+    @GetMapping("/{idOrder}/items")
+    public ResponseEntity<?> listItemsOrder(@PathVariable Long idOrder) {
+        return ResponseEntity.ok().body(orderServicePort.findItemsByOrder(idOrder));
+    }
 }

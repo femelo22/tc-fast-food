@@ -7,4 +7,5 @@ import org.springframework.data.jpa.domain.Specification;
 
 public interface OrderRepositoryPort {
     Page<OrderEntity> listOrders(Specification<OrderEntity> specification, Pageable pageable);
+    OrderEntity findById(Long id);
 }

@@ -19,4 +19,11 @@ public class OrderRepositoryImpl implements OrderRepositoryPort {
     public Page<OrderEntity> listOrders(Specification<OrderEntity> specification, Pageable pageable) {
         return orderRepositoryJpa.findAll(specification, pageable);
     }
+
+    @Override
+    public OrderEntity findById(Long id) {
+        return orderRepositoryJpa.findById(id)
+                .orElseThrow(() -> new RuntimeException(String.format("Pedido %s não encontrado!", id)));
+    }
+
 }
