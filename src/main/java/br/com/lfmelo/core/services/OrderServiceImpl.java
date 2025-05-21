@@ -7,7 +7,7 @@ import br.com.lfmelo.adapters.dtos.ProductOrderDTO;
 import br.com.lfmelo.core.ports.OrderItemServicePort;
 import br.com.lfmelo.core.ports.OrderRepositoryPort;
 import br.com.lfmelo.core.ports.OrderServicePort;
-import br.com.lfmelo.core.ports.SqsSenderServicePort;
+import br.com.lfmelo.core.ports.SqsServicePort;
 import br.com.lfmelo.core.services.specs.OrderSpecification;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -26,7 +26,7 @@ public class OrderServiceImpl implements OrderServicePort {
     private OrderSpecification specification;
 
     @Autowired
-    private SqsSenderServicePort sqsSender;
+    private SqsServicePort sqsSender;
 
     @Autowired
     private OrderItemServicePort orderItemServicePort;
@@ -38,7 +38,7 @@ public class OrderServiceImpl implements OrderServicePort {
 
     @Override
     public void sendToQueue(OrderCheckoutDTO order) {
-        sqsSender.publish(order);
+        sqsSender.publishQueue(order);
     }
 
     @Override
