@@ -1,10 +1,10 @@
-# Etapa de build
+# Etapa de build (sem usar Alpine para evitar problemas com compartibilidade)
 FROM eclipse-temurin:21-jdk AS build
 WORKDIR /app
 COPY . .
 RUN ./mvnw clean package -DskipTests
 
-# Etapa de runtime
+# Etapa de runtime, garantir que sempre será construído um .jar atualizado
 FROM eclipse-temurin:21-jdk
 WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
