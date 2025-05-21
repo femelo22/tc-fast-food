@@ -1,7 +1,7 @@
 package br.com.lfmelo.core.services;
 
 import br.com.lfmelo.adapters.dtos.OrderCheckoutDTO;
-import br.com.lfmelo.core.ports.SqsSenderServicePort;
+import br.com.lfmelo.core.ports.SqsServicePort;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,7 @@ import java.io.IOException;
 
 @Slf4j
 @Service
-public class SqsSenderServiceImpl implements SqsSenderServicePort {
+public class SqsSenderServiceImpl implements SqsServicePort {
 
     @Value("${aws.sendOrder.url}")
     String queueUrl;
@@ -24,7 +24,7 @@ public class SqsSenderServiceImpl implements SqsSenderServicePort {
     private SqsClient sqsClient;
 
     @Override
-    public void publish(OrderCheckoutDTO dto) {
+    public void publishQueue(OrderCheckoutDTO dto) {
         try {
             SendMessageRequest request = SendMessageRequest.builder()
                     .queueUrl(queueUrl)

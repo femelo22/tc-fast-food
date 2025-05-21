@@ -33,7 +33,7 @@ public class ProductController {
     private ModelMapper modelMapper;
 
     @Operation(summary = "Cadastrar produto", description = "Realizar o cadastro de um produto")
-    @ApiResponse(responseCode = "201", description = "Accepted", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ProductEntity.class)))
+    @ApiResponse(responseCode = "201", description = "Created", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ProductEntity.class)))
     @PostMapping
     public ResponseEntity<ProductEntity> registerProduct(@RequestBody ProductForm form) {
         try {
