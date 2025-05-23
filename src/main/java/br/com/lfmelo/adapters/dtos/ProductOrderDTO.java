@@ -17,4 +17,5 @@ public class ProductOrderDTO {
     private BigDecimal price;
     private String description;
     private String typeProduct;
+    private Integer amount;
 }

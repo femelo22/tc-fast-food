@@ -13,7 +13,7 @@ import java.util.List;
 public interface OrderItemRepositoryJpa extends JpaRepository<OrderItemEntity, Long> {
 
     @Query(value = """
-            SELECT tp.id, tp.name, tp.price, tp.description, tp.type_product FROM TBL_PRODUCT tp
+            SELECT tp.id, tp.name, tp.price, tp.description, tp.type_product, toi.amount FROM TBL_PRODUCT tp
             INNER JOIN TBL_ORDER_ITEM toi
             ON tp.id = toi.id_product
             WHERE toi.id_order = :id
