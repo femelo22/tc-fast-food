@@ -1,4 +1,4 @@
-package br.com.lfmelo.core.services;
+package br.com.lfmelo.application.services;
 
 import br.com.lfmelo.adapters.driven.entities.OrderEntity;
 import br.com.lfmelo.adapters.dtos.OrderCheckoutDTO;
@@ -8,7 +8,7 @@ import br.com.lfmelo.core.ports.OrderItemServicePort;
 import br.com.lfmelo.core.ports.OrderRepositoryPort;
 import br.com.lfmelo.core.ports.OrderServicePort;
 import br.com.lfmelo.core.ports.SqsServicePort;
-import br.com.lfmelo.core.services.specs.OrderSpecification;
+import br.com.lfmelo.application.services.specs.OrderSpecification;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

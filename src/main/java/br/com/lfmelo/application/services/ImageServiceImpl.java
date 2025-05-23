@@ -1,4 +1,4 @@
-package br.com.lfmelo.core.services;
+package br.com.lfmelo.application.services;
 
 import br.com.lfmelo.adapters.driven.entities.ImageEntity;
 import br.com.lfmelo.adapters.dtos.ImageResponseDTO;

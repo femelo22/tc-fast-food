@@ -1,4 +1,4 @@
-package br.com.lfmelo.core.services;
+package br.com.lfmelo.application.services;
 
 import br.com.lfmelo.adapters.driven.entities.OrderEntity;
 import br.com.lfmelo.adapters.dtos.ProductOrderDTO;
