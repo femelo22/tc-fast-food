@@ -21,6 +21,9 @@ public class OrderEntity {
     @Column(name = "status")
     private StatusOrder status;
 
+    @Column(name = "alias", length = 100)
+    private String alias;
+
     @CreatedDate
     private LocalDateTime orderDate;
 

@@ -18,7 +18,9 @@ public class OrderFilterDTO {
 
     private String alias;
 
-    private LocalDateTime orderDate;
+    private LocalDateTime orderDateInitial;
+
+    private LocalDateTime orderDateFinal;
 
     private BigDecimal totalGreaterThan;
 
