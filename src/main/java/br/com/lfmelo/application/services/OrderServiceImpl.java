@@ -4,6 +4,7 @@ import br.com.lfmelo.adapters.driven.entities.OrderEntity;
 import br.com.lfmelo.adapters.dtos.OrderCheckoutDTO;
 import br.com.lfmelo.adapters.dtos.OrderFilterDTO;
 import br.com.lfmelo.adapters.dtos.ProductOrderDTO;
+import br.com.lfmelo.application.usecases.MercadoPagoUseCase;
 import br.com.lfmelo.core.ports.OrderItemServicePort;
 import br.com.lfmelo.core.ports.OrderRepositoryPort;
 import br.com.lfmelo.core.ports.OrderServicePort;

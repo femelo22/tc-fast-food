@@ -3,6 +3,7 @@ package br.com.lfmelo.adapters.drivers.controllers;
 import br.com.lfmelo.adapters.driven.entities.OrderEntity;
 import br.com.lfmelo.adapters.dtos.OrderCheckoutDTO;
 import br.com.lfmelo.adapters.dtos.OrderFilterDTO;
+import br.com.lfmelo.application.usecases.MercadoPagoUseCase;
 import br.com.lfmelo.core.ports.OrderServicePort;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -29,10 +30,17 @@ public class OrderController {
     @Autowired
     private ModelMapper modelMapper;
 
+    //@Autowired
+    //private MercadoPagoUseCase mercadoPago;
+
     @Operation(summary = "Enviar pedido para fila de processamento", description = "Realizar checkout de pedido para processamento")
     @ApiResponse(responseCode = "202", description = "Accepted")
     @PostMapping("/checkout")
     public ResponseEntity<?> checkoutOrder(@RequestBody OrderCheckoutDTO dto) {
+
+        //TODO: Finalizar a lógica para enviar ao MP e depois mandar para fila..
+        //mercadoPago.testeMercadoPago();
+
         orderServicePort.sendToQueue(dto);
         return ResponseEntity.accepted().body("Pedido enviaado para fila!");
     }

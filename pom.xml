@@ -92,6 +92,14 @@
 			<scope>test</scope>
 		</dependency>
 
+		<!--No maven central não tem vulnerabilidades apontadas para essa versão -->
+		<!-- https://central.sonatype.com/artifact/com.mercadopago/sdk-java/versions -->
+		<dependency>
+			<groupId>com.mercadopago</groupId>
+			<artifactId>sdk-java</artifactId>
+			<version>2.4.0</version>
+		</dependency>
+
 	</dependencies>
 
 	<dependencyManagement>
