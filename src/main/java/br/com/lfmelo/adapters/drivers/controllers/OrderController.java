@@ -26,6 +26,9 @@ public class OrderController {
     @Autowired
     private OrderServicePort orderServicePort;
 
+    @Autowired
+    private ModelMapper modelMapper;
+
     @Operation(summary = "Enviar pedido para fila de processamento", description = "Realizar checkout de pedido para processamento")
     @ApiResponse(responseCode = "202", description = "Accepted")
     @PostMapping("/checkout")
@@ -33,9 +36,6 @@ public class OrderController {
         orderServicePort.sendToQueue(dto);
         return ResponseEntity.accepted().body("Pedido enviaado para fila!");
     }
-
-    @Autowired
-    private ModelMapper modelMapper;
 
     @Operation(summary = "Listar pedidos paginados com filtos", description = "Retorna uma lista paginada de pedidos")
     @ApiResponse(responseCode = "200", description = "Ok", content = @Content(mediaType = "application/json", schema = @Schema(implementation = Page.class)))
