@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment #Tipo do recurso, aqui é um Deployment que gerencia a criação e atualização dos Pods.
+metadata:
+  name: tc-fast-food-app
+  namespace: namespace-tc
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tc-fast-food-app
+  template:
+    metadata:
+      labels:
+        app: tc-fast-food-app
+    spec:
+      containers:
+        - name: tc-fast-food-app
+          image: lfmelo/tc-fast-food:tagname   # <== Substitua pelo seu usuário e tag do Docker Hub!
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SPRING_DATASOURCE_URL
+              value: jdbc:mysql://mysql:3306/fast-food?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false
+            - name: SPRING_DATASOURCE_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secret
+                  key: username
+            - name: SPRING_DATASOURCE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secret
+                  key: password
+            - name: SPRING_JPA_HIBERNATE_DDL_AUTO
+              value: update
+            # Se quiser, pode adicionar as variáveis AWS aqui também, via Secrets ou ConfigMap
