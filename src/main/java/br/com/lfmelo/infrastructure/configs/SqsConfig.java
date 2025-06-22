@@ -17,10 +17,13 @@ public class SqsConfig {
     @Value("${amazon.secretKey}")
     private String secretKey;
 
+    @Value("${amazon.region}")
+    private String region;
+
     @Bean
     public SqsClient sqsClient() {
         return SqsClient.builder()
-                .region(Region.SA_EAST_1)
+                .region(Region.of(region))
                 .credentialsProvider(StaticCredentialsProvider.create(AwsBasicCredentials.create(accessKey, secretKey)))
                 .build();
     }

@@ -3,6 +3,8 @@ kind: Deployment #Tipo do recurso, aqui é um Deployment que gerencia a criaçã
 metadata:
   name: tc-fast-food-app
   namespace: namespace-tc
+  labels:
+    app: tc-fast-food-app
 spec:
   replicas: 1
   selector:
@@ -15,7 +17,7 @@ spec:
     spec:
       containers:
         - name: tc-fast-food-app
-          image: lfmelo/tc-fast-food:tagname   # <== Substitua pelo seu usuário e tag do Docker Hub!
+          image: lfmelo/tc-fast-food:3.0   # <== Substitua pelo seu usuário e tag do Docker Hub!
           ports:
             - containerPort: 8080
           env:
@@ -33,6 +35,21 @@ spec:
                   key: password
             - name: SPRING_JPA_HIBERNATE_DDL_AUTO
               value: update
+            - name: AWS_ACCESS_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: aws-secret
+                  key: aws-access-key-id
+            - name: AWS_SECRET_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: aws-secret
+                  key: aws-secret-access-key
+            - name: AWS_REGION
+              valueFrom:
+                secretKeyRef:
+                  name: aws-secret
+                  key: aws-region
           livenessProbe: # Detecta se o app está saudável (senão, reinicia o container).
             httpGet:
               path: /actuator/health
@@ -49,8 +66,8 @@ spec:
             failureThreshold: 2      # Se falhar 2 vezes, remove do load balancer
           resources:
             requests:
-              cpu: "100m"
+              cpu: "100m" # ou 0.1
               memory: "256Mi"
             limits:
-              cpu: "500m"
+              cpu: "500m" # ou 0.5
               memory: "512Mi"
